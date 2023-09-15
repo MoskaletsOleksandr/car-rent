@@ -1,0 +1,8 @@
+import { createSelector } from '@reduxjs/toolkit';
+
+export const selectCars = state => state.cars;
+export const selectCarsItems = createSelector(selectCars, cars => cars.items);
+export const selectCarsQuantity = createSelector(
+  selectCars,
+  cars => cars.itemsQuantity
+);

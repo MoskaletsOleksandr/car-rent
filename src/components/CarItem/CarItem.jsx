@@ -1,4 +1,5 @@
-import React from 'react';
+import { CarDetailsModal } from 'components/modals';
+import React, { useState } from 'react';
 import {
   CarImage,
   CarMake,
@@ -13,6 +14,7 @@ import {
 } from './CarItem.styled';
 
 const CarItem = ({ car }) => {
+  const [showModal, setShowModal] = useState(false);
   const {
     img,
     make,
@@ -26,24 +28,31 @@ const CarItem = ({ car }) => {
     functionalities,
   } = car;
 
+  const toggleModal = () => {
+    setShowModal(prevShowModal => !prevShowModal);
+  };
+
   return (
-    <CarCard>
-      <CarItemWrapper>
-        <CarImage src={img} alt={`${make} ${model}`} />
-        <CarMake>{make}</CarMake>
-        <CarModel>{model || make}</CarModel>
-        <CarYear>{year}</CarYear>
-        <CarRentalPrice>${rentalPrice}</CarRentalPrice>
-        <CarDetailsWrapper>
-          <CarDetail>{address}</CarDetail>
-          <CarDetail>{rentalCompany}</CarDetail>
-          <CarDetail>{carType}</CarDetail>
-          <CarDetail>{id}</CarDetail>
-          <CarDetail>{functionalities[0]}</CarDetail>
-        </CarDetailsWrapper>
-        <CarButton>Learn more</CarButton>
-      </CarItemWrapper>
-    </CarCard>
+    <>
+      <CarCard>
+        <CarItemWrapper>
+          <CarImage src={img} alt={`${make} ${model}`} />
+          <CarMake>{make}</CarMake>
+          <CarModel>{model || make}</CarModel>
+          <CarYear>{year}</CarYear>
+          <CarRentalPrice>${rentalPrice}</CarRentalPrice>
+          <CarDetailsWrapper>
+            <CarDetail>{address}</CarDetail>
+            <CarDetail>{rentalCompany}</CarDetail>
+            <CarDetail>{carType}</CarDetail>
+            <CarDetail>{id}</CarDetail>
+            <CarDetail>{functionalities[0]}</CarDetail>
+          </CarDetailsWrapper>
+          <CarButton onClick={toggleModal}>Learn more</CarButton>
+        </CarItemWrapper>
+      </CarCard>
+      {showModal && <CarDetailsModal closeModal={toggleModal} />}
+    </>
   );
 };
 
