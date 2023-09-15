@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcar_rent=self.webpackChunkcar_rent||[]).push([[607],{678:function(n,t,r){r.d(t,{N:function(){return u}});var e,i=r(168),a=r(397).Z.h2(e||(e=(0,i.Z)(["\n  text-align: center;\n  font-size: 24px;\n  font-weight: bold;\n  margin-bottom: 10px;\n"]))),c=r(184),u=function(n){var t=n.title;return(0,c.jsx)(a,{children:t})}},607:function(n,t,r){r.r(t);var e=r(678),i=r(184);t.default=function(){return(0,i.jsx)(e.N,{title:"Find a car with this Car Catalog"})}}}]);
-//# sourceMappingURL=607.dc4f4a67.chunk.js.map

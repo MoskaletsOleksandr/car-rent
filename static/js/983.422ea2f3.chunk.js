@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcar_rent=self.webpackChunkcar_rent||[]).push([[983],{678:function(n,t,e){e.d(t,{N:function(){return o}});var r,c=e(168),i=e(397).Z.h2(r||(r=(0,c.Z)(["\n  text-align: center;\n  font-size: 24px;\n  font-weight: bold;\n  margin-bottom: 10px;\n"]))),u=e(184),o=function(n){var t=n.title;return(0,u.jsx)(i,{children:t})}},983:function(n,t,e){e.r(t);var r=e(678),c=e(184);t.default=function(){return(0,c.jsx)(r.N,{title:"Welcome to Car Rent App"})}}}]);
-//# sourceMappingURL=983.422ea2f3.chunk.js.map
