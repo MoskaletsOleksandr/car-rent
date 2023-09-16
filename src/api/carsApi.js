@@ -34,6 +34,11 @@ export const getCarsQuantity = async ({ rentalPrice = '', make = '' }) => {
   return data.length;
 };
 
+export const getAllCars = async () => {
+  const { data } = await advertsInstance.get();
+  return data;
+};
+
 export const getFilterValues = async () => {
   const { data } = await advertsInstance.get();
 

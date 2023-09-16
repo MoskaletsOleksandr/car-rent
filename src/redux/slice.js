@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { carsInitialState } from './initialState';
 import {
+  getCarsByMileageThunk,
   getCarsQuantityThunk,
   getCarsThunk,
   getFilterValuesThunk,
@@ -25,6 +26,13 @@ const handleGetCarsQuantityFulfilled = (state, { payload }) => {
   state.itemsQuantity = payload;
 };
 
+const handleGetCarsByMileageFulfilled = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  state.items = [...payload];
+  state.itemsQuantity = payload.length;
+};
+
 const handleGetFilterValuesFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
@@ -39,6 +47,7 @@ const carsSlice = createSlice({
       .addCase(getCarsThunk.fulfilled, handleGetCarsFulfilled)
       .addCase(getMoreCarsThunk.fulfilled, handleGetMoreCarsFulfilled)
       .addCase(getCarsQuantityThunk.fulfilled, handleGetCarsQuantityFulfilled)
+      .addCase(getCarsByMileageThunk.fulfilled, handleGetCarsByMileageFulfilled)
       .addCase(getFilterValuesThunk.fulfilled, handleGetFilterValuesFulfilled);
   },
   reducers: {

@@ -1,17 +1,42 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectFilterValues } from 'redux/selectors';
+import { getCarsByMileageThunk } from 'redux/thunks';
 import {
   FilterInputWrapper,
   FilterWrapper,
-  //   StyledInput,
+  StyledInput,
   StyledSelect,
 } from './CarsFilter.styled';
 
 export const CarsFilter = ({ handleMakeChange, handlePriceRangeChange }) => {
-  const filterValues = useSelector(selectFilterValues);
+  const [minMileage, setMinMileage] = useState('');
+  const [maxMileage, setMaxMileage] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Додайте стан для кнопки
 
+  const filterValues = useSelector(selectFilterValues);
   const { makes, priceRanges } = filterValues;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (minMileage && maxMileage) {
+      setIsButtonDisabled(false);
+    } else {
+      setIsButtonDisabled(true);
+    }
+  }, [minMileage, maxMileage]);
+
+  const handleMinMileageChange = event => {
+    setMinMileage(event.target.value);
+  };
+
+  const handleMaxMileageChange = event => {
+    setMaxMileage(event.target.value);
+  };
+
+  const handleApplyMileageFilter = () => {
+    dispatch(getCarsByMileageThunk({ minMileage, maxMileage }));
+  };
 
   return (
     <FilterWrapper>
@@ -45,14 +70,14 @@ export const CarsFilter = ({ handleMakeChange, handlePriceRangeChange }) => {
         </StyledSelect>
       </FilterInputWrapper>
 
-      {/* <FilterInputWrapper>
+      <FilterInputWrapper>
         <label htmlFor="minMileage">Min Mileage:</label>
         <StyledInput
           type="number"
           id="minMileage"
-          name="min"
-          value={mileageRange.min}
-          onChange={handleMileageRangeChange}
+          name="minMileage"
+          value={minMileage}
+          onChange={handleMinMileageChange}
           placeholder="Min Mileage"
         />
       </FilterInputWrapper>
@@ -62,12 +87,16 @@ export const CarsFilter = ({ handleMakeChange, handlePriceRangeChange }) => {
         <StyledInput
           type="number"
           id="maxMileage"
-          name="max"
-          value={mileageRange.max}
-          onChange={handleMileageRangeChange}
+          name="maxMileage"
+          value={maxMileage}
+          onChange={handleMaxMileageChange}
           placeholder="Max Mileage"
         />
-      </FilterInputWrapper> */}
+      </FilterInputWrapper>
+
+      <button onClick={handleApplyMileageFilter} disabled={isButtonDisabled}>
+        Apply Mileage Filter
+      </button>
     </FilterWrapper>
   );
 };

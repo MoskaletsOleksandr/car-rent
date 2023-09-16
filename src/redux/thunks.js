@@ -1,5 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getCars, getCarsQuantity, getFilterValues } from 'api/carsApi';
+import {
+  getAllCars,
+  getCars,
+  getCarsQuantity,
+  getFilterValues,
+} from 'api/carsApi';
 
 export const getCarsThunk = createAsyncThunk(
   'cars/getCars',
@@ -31,6 +36,24 @@ export const getCarsQuantityThunk = createAsyncThunk(
     try {
       const carsQuantity = await getCarsQuantity(params);
       return carsQuantity;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getCarsByMileageThunk = createAsyncThunk(
+  'cars/getCarsByMileage',
+  async ({ minMileage, maxMileage }, { rejectWithValue }) => {
+    try {
+      const cars = await getAllCars();
+
+      const filteredCars = cars.filter(car => {
+        const mileage = car.mileage;
+        return mileage >= minMileage && mileage <= maxMileage;
+      });
+
+      return filteredCars;
     } catch (error) {
       return rejectWithValue(error.message);
     }
