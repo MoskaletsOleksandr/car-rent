@@ -6,3 +6,7 @@ export const selectCarsQuantity = createSelector(
   selectCars,
   cars => cars.itemsQuantity
 );
+export const selectFilterValues = createSelector(
+  selectCars,
+  cars => cars.filterValues
+);

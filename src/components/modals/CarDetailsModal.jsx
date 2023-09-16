@@ -15,10 +15,12 @@ import {
   Mileage,
   AccessoriesWrapper,
   Accessory,
+  RentalButton,
 } from './CarDetailsModal.styled';
 
 export const CarDetailsModal = ({ closeModal, car }) => {
-  // Використовуйте стилі для відповідних елементів в цьому компоненті
+  const contactPhoneNumber = '+380730000000';
+
   return (
     <Modal onClose={closeModal}>
       <ContentWrapper>
@@ -48,6 +50,9 @@ export const CarDetailsModal = ({ closeModal, car }) => {
             <Accessory key={index}>{accessory}</Accessory>
           ))}
         </AccessoriesWrapper>
+        <RentalButton>
+          <a href={`tel:${contactPhoneNumber}`}>Rental Car</a>
+        </RentalButton>
       </ContentWrapper>
     </Modal>
   );

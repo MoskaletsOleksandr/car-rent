@@ -78,3 +78,22 @@ export const Accessory = styled.div`
   color: #666;
   text-align: center;
 `;
+
+export const RentalButton = styled.button`
+  background-color: #3470ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: #2058c5;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
