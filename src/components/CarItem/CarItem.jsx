@@ -51,7 +51,7 @@ const CarItem = ({ car }) => {
           <CarButton onClick={toggleModal}>Learn more</CarButton>
         </CarItemWrapper>
       </CarCard>
-      {showModal && <CarDetailsModal closeModal={toggleModal} />}
+      {showModal && <CarDetailsModal closeModal={toggleModal} car={car} />}
     </>
   );
 };
