@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCarsItems, selectFilterValues } from 'redux/selectors';
 import {
+  getCarsByMileageThunk,
   getCarsQuantityThunk,
   getCarsThunk,
   getMoreCarsThunk,
@@ -60,6 +61,10 @@ const CarCatalog = () => {
     setShouldFetchMore(false);
   };
 
+  const handleApplyMileageFilter = (minMileage, maxMileage) => {
+    dispatch(getCarsByMileageThunk({ minMileage, maxMileage }));
+  };
+
   return (
     <>
       <SectionTitle title="Find a car with this Car Catalog" />
@@ -67,8 +72,13 @@ const CarCatalog = () => {
         filterValues={filterValues}
         handleMakeChange={handleMakeChange}
         handlePriceRangeChange={handlePriceRangeChange}
+        handleApplyMileageFilter={handleApplyMileageFilter}
       />
+      {/* {cars === [] ? ( */}
       <CarsList cars={cars} handleLoadMore={handleLoadMore} />
+      {/* ) : (
+        <p>any cars by mileage</p>
+      )} */}
     </>
   );
 };

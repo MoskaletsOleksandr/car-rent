@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { getCarsByMileageThunk } from 'redux/thunks';
 import {
   FilterInputWrapper,
   FilterWrapper,
@@ -12,13 +10,13 @@ export const CarsFilter = ({
   filterValues,
   handleMakeChange,
   handlePriceRangeChange,
+  handleApplyMileageFilter,
 }) => {
   const [minMileage, setMinMileage] = useState('');
   const [maxMileage, setMaxMileage] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const { makes, priceRanges } = filterValues;
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (minMileage && maxMileage) {
@@ -34,10 +32,6 @@ export const CarsFilter = ({
 
   const handleMaxMileageChange = event => {
     setMaxMileage(event.target.value);
-  };
-
-  const handleApplyMileageFilter = () => {
-    dispatch(getCarsByMileageThunk({ minMileage, maxMileage }));
   };
 
   return (
@@ -96,7 +90,12 @@ export const CarsFilter = ({
         />
       </FilterInputWrapper>
 
-      <button onClick={handleApplyMileageFilter} disabled={isButtonDisabled}>
+      <button
+        onClick={() => {
+          handleApplyMileageFilter(minMileage, maxMileage);
+        }}
+        disabled={isButtonDisabled}
+      >
         Apply Mileage Filter
       </button>
     </FilterWrapper>

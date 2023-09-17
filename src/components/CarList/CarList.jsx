@@ -30,7 +30,7 @@ export const CarsList = ({ cars, handleLoadMore }) => {
           <CarItem key={car.id} car={car} />
         ))}
       </List>
-      {showMoreBtn && (
+      {handleLoadMore && showMoreBtn && (
         <button onClick={() => handleLoadMore()}>Load more</button>
       )}
     </ListWrapper>

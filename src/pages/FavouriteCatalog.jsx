@@ -2,64 +2,50 @@ import { CarsList } from 'components/CarList';
 import { CarsFilter } from 'components/CarsFilter';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFavourites, selectFilterValues } from 'redux/selectors';
-import {
-  getCarsQuantityThunk,
-  getCarsThunk,
-  getMoreCarsThunk,
-} from 'redux/thunks';
+import { useSelector } from 'react-redux';
+import { selectFavourites } from 'redux/selectors';
+import { filterCarsByMileage } from 'utils/filterCarsByMileage';
 import { getFilterValues } from 'utils/getFilterValues';
 
 const FavouriteCatalog = () => {
   const [selectedMake, setSelectedMake] = useState('');
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [shouldFetchMore, setShouldFetchMore] = useState(false);
   const cars = useSelector(selectFavourites);
-  const dispatch = useDispatch();
+  const [filteredCars, setFilteredCars] = useState([]);
 
+  console.log(selectedMake);
+  console.log(selectedPriceRange);
+
+  useEffect(() => {
+    setFilteredCars(cars);
+  }, [cars]);
   const filterValues = getFilterValues(cars);
 
-  useEffect(() => {
-    dispatch(
-      getCarsThunk({
-        page: 1,
-        rentalPrice: selectedPriceRange,
-        make: selectedMake,
-      })
-    );
-    dispatch(
-      getCarsQuantityThunk({
-        rentalPrice: selectedPriceRange,
-        make: selectedMake,
-      })
-    );
-  }, [dispatch, selectedPriceRange, selectedMake]);
-
-  useEffect(() => {
-    if (shouldFetchMore) {
-      dispatch(getMoreCarsThunk({ page: currentPage }));
-    }
-  }, [dispatch, currentPage, shouldFetchMore]);
-
-  const handleLoadMore = () => {
-    setCurrentPage(prevPage => prevPage + 1);
-    setShouldFetchMore(true);
-  };
-
   const handleMakeChange = event => {
-    setSelectedMake(event.target.value);
+    const selectedMakeValue = event.target.value;
+    setSelectedMake(selectedMakeValue);
     setSelectedPriceRange('');
-    setCurrentPage(1);
-    setShouldFetchMore(false);
+
+    const filteredCarsByMake = cars.filter(
+      car => car.make === selectedMakeValue
+    );
+    setFilteredCars(filteredCarsByMake);
   };
 
   const handlePriceRangeChange = event => {
-    setSelectedPriceRange(event.target.value);
+    const selectedPriceRangeValue = event.target.value;
+    setSelectedPriceRange(selectedPriceRangeValue);
     setSelectedMake('');
-    setCurrentPage(1);
-    setShouldFetchMore(false);
+
+    const filteredCarsByPriceRange = cars.filter(
+      car => car.rentalPrice === `$${selectedPriceRangeValue}`
+    );
+    setFilteredCars(filteredCarsByPriceRange);
+  };
+
+  const handleApplyMileageFilter = (minMileage, maxMileage) => {
+    const filteredCars = filterCarsByMileage(cars, minMileage, maxMileage);
+    setFilteredCars(filteredCars);
   };
 
   return (
@@ -69,8 +55,13 @@ const FavouriteCatalog = () => {
         filterValues={filterValues}
         handleMakeChange={handleMakeChange}
         handlePriceRangeChange={handlePriceRangeChange}
+        handleApplyMileageFilter={handleApplyMileageFilter}
       />
-      <CarsList cars={cars} handleLoadMore={handleLoadMore} />
+      {/* {filteredCars === [] ? ( */}
+      <CarsList cars={filteredCars} />
+      {/* ) : (
+        <p>any cars by mileage</p>
+      )} */}
     </>
   );
 };
