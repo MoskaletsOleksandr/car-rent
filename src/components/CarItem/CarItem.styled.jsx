@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const CarCard = styled.li`
+  position: relative;
   width: calc(25% - 16px);
 `;
 

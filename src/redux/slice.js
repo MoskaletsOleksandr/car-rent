@@ -54,9 +54,20 @@ const carsSlice = createSlice({
     clearCars: state => {
       state.items = [];
     },
+    addToFavourites: (state, action) => {
+      const carToAdd = action.payload;
+      state.favourites.push(carToAdd);
+    },
+    removeFromFavourites: (state, action) => {
+      const carIdToRemove = action.payload;
+      state.favourites = state.favourites.filter(
+        car => car.id !== carIdToRemove
+      );
+    },
   },
 });
 
-export const { clearCars } = carsSlice.actions;
+export const { clearCars, addToFavourites, removeFromFavourites } =
+  carsSlice.actions;
 
-export const CarsReducer = carsSlice.reducer;
+export const carsReducer = carsSlice.reducer;

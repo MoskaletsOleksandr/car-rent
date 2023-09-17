@@ -2,7 +2,8 @@ import { CarsList } from 'components/CarList';
 import { CarsFilter } from 'components/CarsFilter';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCarsItems } from 'redux/selectors';
 import {
   getCarsQuantityThunk,
   getCarsThunk,
@@ -14,6 +15,7 @@ const CarCatalog = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [shouldFetchMore, setShouldFetchMore] = useState(false);
+  const cars = useSelector(selectCarsItems);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -64,7 +66,7 @@ const CarCatalog = () => {
         handleMakeChange={handleMakeChange}
         handlePriceRangeChange={handlePriceRangeChange}
       />
-      <CarsList handleLoadMore={handleLoadMore} />
+      <CarsList cars={cars} handleLoadMore={handleLoadMore} />
     </>
   );
 };
