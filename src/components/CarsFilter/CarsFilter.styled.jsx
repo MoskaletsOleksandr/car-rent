@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const FilterWrapper = styled.div`
-  display: block;
+  display: flex;
   gap: 10px;
   align-items: center;
 `;

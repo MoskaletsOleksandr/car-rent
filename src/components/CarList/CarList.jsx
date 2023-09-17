@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCarsQuantity } from 'redux/selectors';
 import { clearCars } from 'redux/slice';
-import { List, ListWrapper } from './CarList.styled';
+import { List, ListWrapper, LoadMoreBtn } from './CarList.styled';
 
 export const CarsList = ({ cars, handleLoadMore }) => {
   const [showMoreBtn, setShowMorerBtn] = useState(true);
@@ -31,7 +31,7 @@ export const CarsList = ({ cars, handleLoadMore }) => {
         ))}
       </List>
       {handleLoadMore && showMoreBtn && (
-        <button onClick={() => handleLoadMore()}>Load more</button>
+        <LoadMoreBtn onClick={() => handleLoadMore()}>Load more</LoadMoreBtn>
       )}
     </ListWrapper>
   );

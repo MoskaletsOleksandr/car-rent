@@ -1,5 +1,7 @@
 import { CarsList } from 'components/CarList';
 import { CarsFilter } from 'components/CarsFilter';
+import { Container } from 'components/common/Container';
+import { Section } from 'components/common/Section';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -66,20 +68,22 @@ const CarCatalog = () => {
   };
 
   return (
-    <>
-      <SectionTitle title="Find a car with this Car Catalog" />
-      <CarsFilter
-        filterValues={filterValues}
-        handleMakeChange={handleMakeChange}
-        handlePriceRangeChange={handlePriceRangeChange}
-        handleApplyMileageFilter={handleApplyMileageFilter}
-      />
-      {/* {cars === [] ? ( */}
-      <CarsList cars={cars} handleLoadMore={handleLoadMore} />
-      {/* ) : (
+    <Section>
+      <Container>
+        <SectionTitle title="Find a car with this Car Catalog" />
+        <CarsFilter
+          filterValues={filterValues}
+          handleMakeChange={handleMakeChange}
+          handlePriceRangeChange={handlePriceRangeChange}
+          handleApplyMileageFilter={handleApplyMileageFilter}
+        />
+        {/* {cars === [] ? ( */}
+        <CarsList cars={cars} handleLoadMore={handleLoadMore} />
+        {/* ) : (
         <p>any cars by mileage</p>
       )} */}
-    </>
+      </Container>
+    </Section>
   );
 };
 

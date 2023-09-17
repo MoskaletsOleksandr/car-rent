@@ -1,13 +1,37 @@
 import styled from '@emotion/styled';
 
+export const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const List = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-between;
+  gap: 29px;
+  justify-content: start;
 `;
 
-export const ListWrapper = styled.div``;
+export const LoadMoreBtn = styled.button`
+  margin-top: 100px;
+
+  background-color: transparent;
+  border: none;
+
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  color: #3470ff;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  &:hover,
+  :focus {
+    color: #0b44cd;
+    outline: none;
+  }
+`;
