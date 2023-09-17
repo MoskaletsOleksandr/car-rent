@@ -4,9 +4,11 @@ export const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
 `;
 
 export const List = styled.ul`
+  width: 100%;
   list-style: none;
   padding: 0;
   display: flex;

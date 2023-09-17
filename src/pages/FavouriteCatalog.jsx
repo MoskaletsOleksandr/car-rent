@@ -10,37 +10,22 @@ import { filterCarsByMileage } from 'utils/filterCarsByMileage';
 import { getFilterValues } from 'utils/getFilterValues';
 
 const FavouriteCatalog = () => {
-  const [selectedMake, setSelectedMake] = useState('');
-  const [selectedPriceRange, setSelectedPriceRange] = useState('');
   const cars = useSelector(selectFavourites);
-  const [filteredCars, setFilteredCars] = useState([]);
-
-  console.log(selectedMake);
-  console.log(selectedPriceRange);
+  const [filteredCars, setFilteredCars] = useState(cars);
+  const filterValues = getFilterValues(cars);
 
   useEffect(() => {
     setFilteredCars(cars);
   }, [cars]);
-  const filterValues = getFilterValues(cars);
 
-  const handleMakeChange = event => {
-    const selectedMakeValue = event.target.value;
-    setSelectedMake(selectedMakeValue);
-    setSelectedPriceRange('');
-
-    const filteredCarsByMake = cars.filter(
-      car => car.make === selectedMakeValue
-    );
+  const handleMakeChange = value => {
+    const filteredCarsByMake = cars.filter(car => car.make === value);
     setFilteredCars(filteredCarsByMake);
   };
 
-  const handlePriceRangeChange = event => {
-    const selectedPriceRangeValue = event.target.value;
-    setSelectedPriceRange(selectedPriceRangeValue);
-    setSelectedMake('');
-
+  const handlePriceRangeChange = value => {
     const filteredCarsByPriceRange = cars.filter(
-      car => car.rentalPrice === `$${selectedPriceRangeValue}`
+      car => car.rentalPrice === `$${value}`
     );
     setFilteredCars(filteredCarsByPriceRange);
   };
@@ -60,11 +45,7 @@ const FavouriteCatalog = () => {
           handlePriceRangeChange={handlePriceRangeChange}
           handleApplyMileageFilter={handleApplyMileageFilter}
         />
-        {/* {filteredCars === [] ? ( */}
         <CarsList cars={filteredCars} />
-        {/* ) : (
-        <p>any cars by mileage</p>
-      )} */}
       </Container>
     </Section>
   );

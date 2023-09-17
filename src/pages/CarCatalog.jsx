@@ -49,15 +49,15 @@ const CarCatalog = () => {
     setShouldFetchMore(true);
   };
 
-  const handleMakeChange = event => {
-    setSelectedMake(event.target.value);
+  const handleMakeChange = value => {
+    setSelectedMake(value);
     setSelectedPriceRange('');
     setCurrentPage(1);
     setShouldFetchMore(false);
   };
 
-  const handlePriceRangeChange = event => {
-    setSelectedPriceRange(event.target.value);
+  const handlePriceRangeChange = value => {
+    setSelectedPriceRange(value);
     setSelectedMake('');
     setCurrentPage(1);
     setShouldFetchMore(false);
