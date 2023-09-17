@@ -77,11 +77,7 @@ const CarCatalog = () => {
           handlePriceRangeChange={handlePriceRangeChange}
           handleApplyMileageFilter={handleApplyMileageFilter}
         />
-        {/* {cars === [] ? ( */}
         <CarsList cars={cars} handleLoadMore={handleLoadMore} />
-        {/* ) : (
-        <p>any cars by mileage</p>
-      )} */}
       </Container>
     </Section>
   );
