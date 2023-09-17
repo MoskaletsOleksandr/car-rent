@@ -1,99 +1,109 @@
 import styled from '@emotion/styled';
 
-export const ContentWrapper = styled.div`
-  text-align: center;
-  padding: 2rem;
-`;
+export const ContentWrapper = styled.div``;
 
-export const Title = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333;
-`;
-
-export const CarInfoWrapper = styled.div`
+export const RentalButton = styled.a`
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  justify-content: center;
   align-items: center;
+  width: 168px;
+  height: 44px;
+  background-color: #3470ff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover,
+  :focu {
+    background-color: #0b44cd;
+    outline: none;
+  }
 `;
 
 export const CarImage = styled.img`
-  height: auto;
+  width: 461px;
+  height: 248px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 14px;
+`;
+
+export const CarInfoWrapper = styled.div``;
+
+export const CarTitle = styled.h3`
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+`;
+
+export const CarMake = styled.span``;
+
+export const CarModel = styled.span`
+  color: #3470ff;
+`;
+
+export const CarYear = styled.span``;
+
+export const CarInfo = styled.p`
+  font-size: 12px;
+  line-height: calc(18 / 12);
+  font-weight: 400;
+  color: #12141780;
+`;
+
+export const CarDetail = styled.span`
+  display: inline-block;
+  margin-right: 16px;
+
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: '';
+
+    position: absolute;
+    right: -8px;
+    height: 16px;
+    width: 1px;
+    background: #12141720;
+  }
 `;
 
 export const CarDescription = styled.p`
-  font-size: 1rem;
-  color: #666;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #121417;
 `;
 
-export const CarSpecsWrapper = styled.div`
+export const CarHeader = styled.h4`
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #121417;
+`;
+
+export const CarConditionsWrapper = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  gap: 8px;
   flex-wrap: wrap;
+  margin-bottom: 24px;
 `;
 
-export const CarSpec = styled.div`
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
-`;
-
-export const RentPrice = styled.div`
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-`;
-
-export const RentCompany = styled.div`
-  font-size: 1rem;
-  color: #666;
-`;
-
-export const CarLocation = styled.div`
-  font-size: 1rem;
-  color: #666;
-`;
-
-export const RentalConditions = styled.div`
-  font-size: 0.9rem;
-  color: #666;
-`;
-
-export const Mileage = styled.div`
-  font-size: 0.9rem;
-  color: #666;
-`;
-
-export const AccessoriesWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-`;
-
-export const Accessory = styled.div`
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
-`;
-
-export const RentalButton = styled.button`
-  background-color: #3470ff;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+export const CarConditionWrapper = styled.div`
+  padding: 7px 14px;
+  background-color: #f9f9f9;
   border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s;
+  border-radius: 35px;
+`;
 
-  &:hover {
-    background-color: #2058c5;
-  }
-
-  &:focus {
-    outline: none;
-  }
+export const ConditionText = styled.span`
+  font-size: 12px;
+  font-weight: ${({ isNumber }) => (isNumber ? '600' : 'inherit')};
+  color: ${({ isNumber }) => (isNumber ? '#3470FF' : 'inherit')};
 `;

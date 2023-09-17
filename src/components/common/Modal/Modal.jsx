@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import {
-  CloseButton,
-  CloseSVG,
-  ModalBackdrop,
-  ModalContent,
-} from './Modal.styled';
+import { CloseSVG, ModalBackdrop, ModalContent } from './Modal.styled';
 import sprite from '../../../images/sprite.svg';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -35,15 +30,15 @@ export const Modal = ({ onClose, children }) => {
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
       <ModalContent>
-        <CloseButton
+        <CloseSVG
+          width={24}
+          height={24}
           onClick={() => {
             onClose();
           }}
         >
-          <CloseSVG>
-            <use href={sprite + '#icon-close'}></use>
-          </CloseSVG>
-        </CloseButton>
+          <use href={sprite + '#icon-close'}></use>
+        </CloseSVG>
         {children}
       </ModalContent>
     </ModalBackdrop>,

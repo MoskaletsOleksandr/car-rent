@@ -31,9 +31,7 @@ export const CarTitle = styled.h3`
   margin-bottom: 8px;
 `;
 
-export const CarMake = styled.span`
-  margin-top: 8px;
-`;
+export const CarMake = styled.span``;
 
 export const CarModel = styled.span`
   color: #3470ff;

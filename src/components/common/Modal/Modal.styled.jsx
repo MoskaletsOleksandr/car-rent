@@ -15,22 +15,28 @@ export const ModalBackdrop = styled.div`
 
 export const ModalContent = styled.div`
   position: relative;
+  width: 541px;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 4px;
+  padding: 40px;
+  border-radius: 24px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 `;
 
-export const CloseButton = styled.button`
+export const CloseSVG = styled.svg`
   position: absolute;
   top: 14px;
   right: 14px;
-  cursor: pointer;
-`;
 
-export const CloseSVG = styled.svg`
-  width: 24px;
-  height: 24px;
   stroke: black;
+
+  cursor: pointer;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  :focus {
+    transform: scale(1.2);
+    outline: none;
+  }
 `;

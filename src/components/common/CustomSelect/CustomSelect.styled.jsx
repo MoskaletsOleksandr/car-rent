@@ -22,7 +22,8 @@ export const OptionsList = styled.ul`
   top: 52px;
   left: 0;
   width: 100%;
-  height: ${({ selectType }) => (selectType === 'make' ? '272px' : '188px')};
+  max-height: ${({ selectType }) =>
+    selectType === 'make' ? '272px' : '188px'};
   background-color: #fff;
   border: 1px solid rgba(18, 20, 23, 0.05);
   border-radius: 14px;
