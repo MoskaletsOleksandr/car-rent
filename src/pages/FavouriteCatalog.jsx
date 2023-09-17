@@ -38,7 +38,7 @@ const FavouriteCatalog = () => {
   return (
     <Section>
       <Container>
-        <SectionTitle title="Find a car with this Car Catalog" />
+        <SectionTitle title="Choose a car from among your favorites" />
         <CarsFilter
           filterValues={filterValues}
           handleMakeChange={handleMakeChange}
