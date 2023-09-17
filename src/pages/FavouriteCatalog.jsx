@@ -3,12 +3,13 @@ import { CarsFilter } from 'components/CarsFilter';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavourites } from 'redux/selectors';
+import { selectFavourites, selectFilterValues } from 'redux/selectors';
 import {
   getCarsQuantityThunk,
   getCarsThunk,
   getMoreCarsThunk,
 } from 'redux/thunks';
+import { getFilterValues } from 'utils/getFilterValues';
 
 const FavouriteCatalog = () => {
   const [selectedMake, setSelectedMake] = useState('');
@@ -17,6 +18,8 @@ const FavouriteCatalog = () => {
   const [shouldFetchMore, setShouldFetchMore] = useState(false);
   const cars = useSelector(selectFavourites);
   const dispatch = useDispatch();
+
+  const filterValues = getFilterValues(cars);
 
   useEffect(() => {
     dispatch(
@@ -63,6 +66,7 @@ const FavouriteCatalog = () => {
     <>
       <SectionTitle title="Find a car with this Car Catalog" />
       <CarsFilter
+        filterValues={filterValues}
         handleMakeChange={handleMakeChange}
         handlePriceRangeChange={handlePriceRangeChange}
       />

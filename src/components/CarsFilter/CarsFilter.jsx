@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFilterValues } from 'redux/selectors';
+import { useDispatch } from 'react-redux';
 import { getCarsByMileageThunk } from 'redux/thunks';
 import {
   FilterInputWrapper,
@@ -9,12 +8,15 @@ import {
   StyledSelect,
 } from './CarsFilter.styled';
 
-export const CarsFilter = ({ handleMakeChange, handlePriceRangeChange }) => {
+export const CarsFilter = ({
+  filterValues,
+  handleMakeChange,
+  handlePriceRangeChange,
+}) => {
   const [minMileage, setMinMileage] = useState('');
   const [maxMileage, setMaxMileage] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true); // Додайте стан для кнопки
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  const filterValues = useSelector(selectFilterValues);
   const { makes, priceRanges } = filterValues;
   const dispatch = useDispatch();
 

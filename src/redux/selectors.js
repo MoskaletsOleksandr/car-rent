@@ -1,7 +1,20 @@
-export const selectCarsItems = state => state.items;
+import { createSelector } from '@reduxjs/toolkit';
 
-export const selectCarsQuantity = state => state.itemsQuantity;
+export const selectCars = state => state.cars;
 
-export const selectFilterValues = state => state.filterValues;
+export const selectCarsItems = createSelector([selectCars], cars => cars.items);
 
-export const selectFavourites = state => state.favourites;
+export const selectCarsQuantity = createSelector(
+  [selectCars],
+  cars => cars.itemsQuantity
+);
+
+export const selectFilterValues = createSelector(
+  [selectCars],
+  cars => cars.filterValues
+);
+
+export const selectFavourites = createSelector(
+  [selectCars],
+  cars => cars.favourites
+);

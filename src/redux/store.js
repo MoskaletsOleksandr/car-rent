@@ -21,7 +21,9 @@ const persistConfig = {
 const persistedCarsReducer = persistReducer(persistConfig, carsReducer);
 
 export const store = configureStore({
-  reducer: persistedCarsReducer,
+  reducer: {
+    cars: persistedCarsReducer,
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
