@@ -8,6 +8,16 @@ import {
   getMoreCarsThunk,
 } from './thunks';
 
+const handlePending = state => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, { payload }) => {
+  state.isLoading = false;
+  state.items = [];
+  state.error = payload;
+};
+
 const handleGetCarsFulfilled = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
@@ -48,7 +58,9 @@ const carsSlice = createSlice({
       .addCase(getMoreCarsThunk.fulfilled, handleGetMoreCarsFulfilled)
       .addCase(getCarsQuantityThunk.fulfilled, handleGetCarsQuantityFulfilled)
       .addCase(getCarsByMileageThunk.fulfilled, handleGetCarsByMileageFulfilled)
-      .addCase(getFilterValuesThunk.fulfilled, handleGetFilterValuesFulfilled);
+      .addCase(getFilterValuesThunk.fulfilled, handleGetFilterValuesFulfilled)
+      .addMatcher(action => action.type.endsWith('/rejected'), handleRejected)
+      .addMatcher(action => action.type.endsWith('/pending'), handlePending);
   },
   reducers: {
     clearCars: state => {
