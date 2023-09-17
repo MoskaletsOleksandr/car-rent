@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/car-rent/static/css/main.cd2e038f.css",
-    "main.js": "/car-rent/static/js/main.a049dfcd.js",
-    "static/js/983.f10fa530.chunk.js": "/car-rent/static/js/983.f10fa530.chunk.js",
-    "static/js/607.86c4eefe.chunk.js": "/car-rent/static/js/607.86c4eefe.chunk.js",
-    "static/js/811.bc7bd185.chunk.js": "/car-rent/static/js/811.bc7bd185.chunk.js",
-    "static/js/840.e47e2677.chunk.js": "/car-rent/static/js/840.e47e2677.chunk.js",
+    "main.js": "/car-rent/static/js/main.d68494c8.js",
+    "static/js/983.c371c906.chunk.js": "/car-rent/static/js/983.c371c906.chunk.js",
+    "static/js/607.e6a018b4.chunk.js": "/car-rent/static/js/607.e6a018b4.chunk.js",
+    "static/js/811.0d84e86d.chunk.js": "/car-rent/static/js/811.0d84e86d.chunk.js",
+    "static/js/673.362d8488.chunk.js": "/car-rent/static/js/673.362d8488.chunk.js",
     "static/media/sprite.svg": "/car-rent/static/media/sprite.e7d7b9326780cccd0feb7d5aaab24bee.svg",
     "index.html": "/car-rent/index.html",
     "main.cd2e038f.css.map": "/car-rent/static/css/main.cd2e038f.css.map",
-    "main.a049dfcd.js.map": "/car-rent/static/js/main.a049dfcd.js.map",
-    "983.f10fa530.chunk.js.map": "/car-rent/static/js/983.f10fa530.chunk.js.map",
-    "607.86c4eefe.chunk.js.map": "/car-rent/static/js/607.86c4eefe.chunk.js.map",
-    "811.bc7bd185.chunk.js.map": "/car-rent/static/js/811.bc7bd185.chunk.js.map",
-    "840.e47e2677.chunk.js.map": "/car-rent/static/js/840.e47e2677.chunk.js.map"
+    "main.d68494c8.js.map": "/car-rent/static/js/main.d68494c8.js.map",
+    "983.c371c906.chunk.js.map": "/car-rent/static/js/983.c371c906.chunk.js.map",
+    "607.e6a018b4.chunk.js.map": "/car-rent/static/js/607.e6a018b4.chunk.js.map",
+    "811.0d84e86d.chunk.js.map": "/car-rent/static/js/811.0d84e86d.chunk.js.map",
+    "673.362d8488.chunk.js.map": "/car-rent/static/js/673.362d8488.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.a049dfcd.js"
+    "static/js/main.d68494c8.js"
   ]
 }
