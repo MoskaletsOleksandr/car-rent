@@ -9,12 +9,17 @@ export const CustomSelect = styled.div`
   border-radius: 14px;
   background-color: #f7f7fb;
   cursor: pointer;
+  z-index: 2;
 `;
 
 export const SelectedOption = styled.div`
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   padding: 14px 18px;
+
+  @media (min-width: 520px) {
+    font-size: 18px;
+  }
 `;
 
 export const OptionsList = styled.ul`

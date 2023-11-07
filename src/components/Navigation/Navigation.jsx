@@ -1,7 +1,6 @@
 import { Link, NavigationStyled, NavigationWrapper } from './Navigation.styled';
 
 export const Navigation = () => {
-
   return (
     <NavigationStyled>
       <NavigationWrapper>

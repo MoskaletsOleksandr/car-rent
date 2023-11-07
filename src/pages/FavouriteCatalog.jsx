@@ -1,6 +1,5 @@
 import { CarsList } from 'components/CarList';
 import { CarsFilter } from 'components/CarsFilter';
-import { Container } from 'components/common/Container';
 import { Section } from 'components/common/Section';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
@@ -37,16 +36,14 @@ const FavouriteCatalog = () => {
 
   return (
     <Section>
-      <Container>
-        <SectionTitle title="Choose a car from among your favorites" />
-        <CarsFilter
-          filterValues={filterValues}
-          handleMakeChange={handleMakeChange}
-          handlePriceRangeChange={handlePriceRangeChange}
-          handleApplyMileageFilter={handleApplyMileageFilter}
-        />
-        <CarsList cars={filteredCars} />
-      </Container>
+      <SectionTitle title="Choose a car from among your favorites" />
+      <CarsFilter
+        filterValues={filterValues}
+        handleMakeChange={handleMakeChange}
+        handlePriceRangeChange={handlePriceRangeChange}
+        handleApplyMileageFilter={handleApplyMileageFilter}
+      />
+      <CarsList cars={filteredCars} />
     </Section>
   );
 };

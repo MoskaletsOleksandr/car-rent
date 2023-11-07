@@ -1,9 +1,20 @@
 import styled from '@emotion/styled';
 
 export const FilterWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: 1200px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+export const GroupWrapper = styled.div`
   display: flex;
   gap: 10px;
-  align-items: end;
   justify-content: center;
 `;
 
@@ -16,14 +27,7 @@ export const MileageInputWrapper = styled.div`
   position: relative;
 
   &:first-of-type {
-    /* border-top-left-radius: 14px;
-    border-bottom-left-radius: 14px; */
     border-right: 1px solid #ccc;
-  }
-
-  &:last-of-type {
-    /* border-top-right-radius: 14px;
-    border-bottom-right-radius: 14px; */
   }
 `;
 
@@ -36,52 +40,63 @@ export const Label = styled.label`
 export const StyledInput = styled.input`
   position: relative;
   padding: ${({ inputType }) =>
-    inputType === 'minMileage' ? '14px 0 14px 70px;' : '14px 0 14px 46px;'};
-  width: 160px;
+    inputType === 'minMileage' ? '14px 0 14px 60px;' : '14px 0 14px 42px;'};
+  width: 110px;
   height: 48px;
   font-size: 14px;
-  background-color: #f7f7fb;
-  font-size: 18px;
   font-weight: 500;
+  background-color: #f7f7fb;
   color: #121417;
 
   border: none;
   border-radius: ${({ inputType }) =>
     inputType === 'minMileage' ? '14px 0 0 14px' : '0 14px 14px 0'};
+
+  @media (min-width: 520px) {
+    width: 160px;
+    height: 48px;
+    font-size: 18px;
+    padding: ${({ inputType }) =>
+      inputType === 'minMileage' ? '14px 0 14px 70px;' : '14px 0 14px 46px;'};
+  }
 `;
 
 export const InputInfo = styled.span`
   position: absolute;
-  top: 14px;
+  top: 15px;
   left: 24px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   color: #121417;
 
   z-index: 1;
+
+  @media (min-width: 520px) {
+    top: 14px;
+    font-size: 18px;
+  }
 `;
 
 export const FilterInputWrapper = styled.div`
-  width: 125px;
+  width: 224px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: start;
+`;
 
-  &:first-of-type {
-    width: 224px;
-  }
-
-  &:last-of-type {
-    margin-left: 150px;
-    width: 320px;
-  }
+export const FilterMileageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: start;
 `;
 
 export const MileageFilterBtn = styled.button`
   transition: transform 0.3s ease-in-out;
   height: 48px;
-  padding: 14px 44px;
+  padding: 10px 20px;
+  margin-left: 10px;
   border: none;
   border-radius: 12px;
   font-size: 14px;
@@ -94,5 +109,13 @@ export const MileageFilterBtn = styled.button`
   &:focus {
     background-color: ${({ disabled }) => (disabled ? '#ccc' : '#0B44CD')};
     outline: none;
+  }
+
+  @media (min-width: 520px) {
+    padding: 14px 20px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 14px 44px;
   }
 `;

@@ -2,18 +2,27 @@ import styled from '@emotion/styled';
 
 export const CarCard = styled.li`
   position: relative;
-  width: 274px;
-  height: 426px;
+  width: 267px;
+  height: 450px;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (min-width: 520px) {
+    width: 230px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 267px;
+    height: 426px;
+  }
 `;
 
 export const CardContent = styled.div``;
 
 export const CarImage = styled.img`
-  width: 274px;
+  width: 100%;
   height: 268px;
   object-fit: cover;
   border-radius: 14px;
@@ -69,7 +78,7 @@ export const CarDetail = styled.span`
 `;
 
 export const CarButton = styled.button`
-  width: 274px;
+  width: 100%;
   height: 44px;
   padding-top: 12px;
   padding-bottom: 12px;

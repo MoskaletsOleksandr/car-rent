@@ -1,6 +1,5 @@
 import { CarsList } from 'components/CarList';
 import { CarsFilter } from 'components/CarsFilter';
-import { Container } from 'components/common/Container';
 import { Section } from 'components/common/Section';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
@@ -69,16 +68,14 @@ const CarCatalog = () => {
 
   return (
     <Section>
-      <Container>
-        <SectionTitle title="Find a car with this Car Catalog" />
-        <CarsFilter
-          filterValues={filterValues}
-          handleMakeChange={handleMakeChange}
-          handlePriceRangeChange={handlePriceRangeChange}
-          handleApplyMileageFilter={handleApplyMileageFilter}
-        />
-        <CarsList cars={cars} handleLoadMore={handleLoadMore} />
-      </Container>
+      <SectionTitle title="Find a car with this Car Catalog" />
+      <CarsFilter
+        filterValues={filterValues}
+        handleMakeChange={handleMakeChange}
+        handlePriceRangeChange={handlePriceRangeChange}
+        handleApplyMileageFilter={handleApplyMileageFilter}
+      />
+      <CarsList cars={cars} handleLoadMore={handleLoadMore} />
     </Section>
   );
 };

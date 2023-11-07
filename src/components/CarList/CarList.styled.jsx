@@ -13,8 +13,12 @@ export const List = styled.ul`
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 29px;
-  justify-content: start;
+  gap: 19px;
+  justify-content: center;
+
+  @media (min-width: 1200px) {
+    gap: 30px;
+  }
 `;
 
 export const LoadMoreBtn = styled.button`
