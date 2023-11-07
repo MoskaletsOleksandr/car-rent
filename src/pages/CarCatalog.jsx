@@ -1,10 +1,15 @@
 import { CarsList } from 'components/CarList';
 import { CarsFilter } from 'components/CarsFilter';
+import { Loader } from 'components/common/Loader';
 import { Section } from 'components/common/Section';
 import { SectionTitle } from 'components/common/SectionTitle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCarsItems, selectFilterValues } from 'redux/selectors';
+import {
+  selectCarsItems,
+  selectFilterValues,
+  selectIsLoading,
+} from 'redux/selectors';
 import {
   getCarsByMileageThunk,
   getCarsQuantityThunk,
@@ -19,6 +24,7 @@ const CarCatalog = () => {
   const [shouldFetchMore, setShouldFetchMore] = useState(false);
   const cars = useSelector(selectCarsItems);
   const filterValues = useSelector(selectFilterValues);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -67,16 +73,19 @@ const CarCatalog = () => {
   };
 
   return (
-    <Section>
-      <SectionTitle title="Find a car with this Car Catalog" />
-      <CarsFilter
-        filterValues={filterValues}
-        handleMakeChange={handleMakeChange}
-        handlePriceRangeChange={handlePriceRangeChange}
-        handleApplyMileageFilter={handleApplyMileageFilter}
-      />
-      <CarsList cars={cars} handleLoadMore={handleLoadMore} />
-    </Section>
+    <>
+      {isLoading && <Loader />}
+      <Section>
+        <SectionTitle title="Find a car with this Car Catalog" />
+        <CarsFilter
+          filterValues={filterValues}
+          handleMakeChange={handleMakeChange}
+          handlePriceRangeChange={handlePriceRangeChange}
+          handleApplyMileageFilter={handleApplyMileageFilter}
+        />
+        <CarsList cars={cars} handleLoadMore={handleLoadMore} />
+      </Section>
+    </>
   );
 };
 

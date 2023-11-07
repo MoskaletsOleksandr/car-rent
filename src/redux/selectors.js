@@ -18,3 +18,8 @@ export const selectFavourites = createSelector(
   [selectCars],
   cars => cars.favourites
 );
+
+export const selectIsLoading = createSelector(
+  [selectCars],
+  cars => cars.isLoading
+);
