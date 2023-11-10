@@ -1,7 +1,10 @@
 export const carsInitialState = {
   itemsQuantity: null,
   items: [],
-  filterValues: null,
+  filterValues: {
+    makes: [],
+    priceRanges: [],
+  },
   favourites: [],
   isLoading: false,
   error: null,
