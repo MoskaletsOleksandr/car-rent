@@ -31,6 +31,11 @@ export const CarImage = styled.img`
   object-fit: cover;
   border-radius: 14px;
   margin-bottom: 14px;
+
+  @media (max-width: 519px) {
+    width: 275px;
+    height: 148px;
+  }
 `;
 
 export const CarInfoWrapper = styled.div``;
@@ -54,6 +59,10 @@ export const CarInfo = styled.p`
   line-height: calc(18 / 12);
   font-weight: 400;
   color: #12141780;
+
+  @media (max-width: 519px) {
+    display: ${({ hiddenForMob }) => (hiddenForMob ? 'none' : 'block')};
+  }
 `;
 
 export const CarDetail = styled.span`
@@ -78,6 +87,10 @@ export const CarDescription = styled.p`
   font-size: 14px;
   font-weight: 400;
   color: #121417;
+
+  @media (max-width: 519px) {
+    display: none;
+  }
 `;
 
 export const CarHeader = styled.h4`
@@ -86,6 +99,10 @@ export const CarHeader = styled.h4`
   font-size: 14px;
   font-weight: 500;
   color: #121417;
+
+  @media (max-width: 519px) {
+    display: ${({ hiddenForMob }) => (hiddenForMob ? 'none' : 'block')};
+  }
 `;
 
 export const CarConditionsWrapper = styled.div`

@@ -50,13 +50,15 @@ export const CarDetailsModal = ({ closeModal, car }) => {
           <CarDescription>{car.description}</CarDescription>
         </CarInfoWrapper>
 
-        <CarHeader>Accessories and functionalities:</CarHeader>
-        <CarInfo>
+        <CarHeader hiddenForMob={true}>
+          Accessories and functionalities:
+        </CarHeader>
+        <CarInfo hiddenForMob={true}>
           {car.accessories.map((accessor, index) => (
             <CarDetail key={index}>{accessor}</CarDetail>
           ))}
         </CarInfo>
-        <CarInfo>
+        <CarInfo hiddenForMob={true}>
           {car.functionalities.map((functionality, index) => (
             <CarDetail key={index}>{functionality}</CarDetail>
           ))}

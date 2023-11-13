@@ -15,12 +15,20 @@ export const ModalBackdrop = styled.div`
 
 export const ModalContent = styled.div`
   position: relative;
-  width: 541px;
+  width: 355px;
   background-color: #fff;
   padding: 40px;
   border-radius: 24px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+
+  @media (min-width: 520px) {
+    width: 500px;
+  }
+
+  @media (min-width: 768px) {
+    width: 541px;
+  }
 `;
 
 export const CloseSVG = styled.svg`
